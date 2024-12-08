@@ -7,5 +7,5 @@ Cypress.Commands.add('visitURLSuccessfully', (url) => {
 Cypress.Commands.add('loginSuccessWithRoleAdmin', (url) => {
     cy.visit(Contants.URL);
     cy.get('input[name="username"]').type('Admin');
-    cy.get('input[name="password"]').type('admin123');
+    cy.get('input[name="password"]').type('admin12');
 })
