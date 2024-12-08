@@ -2,7 +2,7 @@ name: End-to-end tests
 on:
   push:
     branches:
-      - 'main'
+      - main
 
 jobs:
   cypress-run:
@@ -18,21 +18,6 @@ jobs:
         with:
           browser: chrome
           config-file: cypress.config.js
-
-      # Copy test execution videos and screenshots
-      - name: Copy test execution artifacts
-        run: |
-          mkdir public
-          cp -r cypress/videos public/videos
-          cp -r cypress/screenshots public/screenshots
-
-      # Merge test reports
-      - name: Merge test reports
-        run: npm run combine:report
-
-      # Generate HTML report
-      - name: Generate HTML report
-        run: npm run generate:report
 
       # Deploy report to GitHub Pages
       - name: Deploy report page to GitHub Pages
