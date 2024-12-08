@@ -13,11 +13,11 @@ jobs:
         uses: actions/checkout@v4
 
       # Install npm dependencies and run all Cypress tests
-    - name: Install npm dependencies and Cypress run
-      uses: cypress-io/github-action@v6
-      with:
-    browser: chrome
-    config-file: cypress.config.js
+      - name: Install npm dependencies and Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          config-file: cypress.config.js
 
       # Copy test execution videos and screenshots
       - name: Copy test execution artifacts
