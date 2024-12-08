@@ -1,26 +1,39 @@
-name: End-to-end tests
+name: Cypress Test
 on:
   push:
     branches:
-      - main
+      - 'main'
 
 jobs:
-  cypress-run:
-    runs-on: ubuntu-22.04
+  cypress-test:
+    name: Run on Chrome 83
+    runs-on: ubuntu-18.04
+    container: cypress/browsers:node12.18.0-chrome83-ff77
     steps:
-      # Checkout the repository
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v2
 
-      # Install npm dependencies and run all Cypress tests
-      - name: Install npm dependencies and Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          browser: chrome
-          config-file: cypress.config.js
+      - name: Install cypress and verify
+        run: |
+          npm ci
+          $(npm bin)/cypress verify
 
-      # Deploy report to GitHub Pages
-      - name: Deploy report page to GitHub Pages
+      - name: Run Cypress tests
+        run: npm run test:chrome
+        continue-on-error: false
+
+      - name: Copy test execution videos and screenshots
+        run: |
+          mkdir public
+          cp -r cypress/videos public/videos
+          cp -r cypress/screenshots public/screenshots
+
+      - name: Merge test reports
+        run: npm run combine:report
+
+      - name: Generate HTML report
+        run: npm run generate:report
+
+      - name: Deploy report page to GitHub Page
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.SECRET_TOKEN }}
