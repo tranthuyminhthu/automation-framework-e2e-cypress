@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2024-12-09T17:41:41.608Z",
-    "end": "2024-12-09T17:41:52.447Z",
-    "duration": 10839,
+    "start": "2024-12-09T18:58:42.658Z",
+    "end": "2024-12-09T18:58:47.468Z",
+    "duration": 4810,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,16 +18,16 @@
   },
   "results": [
     {
-      "uuid": "e9c6ce7a-0ab6-4028-acf3-0c4adc908b81",
+      "uuid": "d38c790b-3729-462e-846d-fd54732d0035",
       "title": "",
-      "fullFile": "cypress\\e2e\\TestCases\\Login.spec.js",
-      "file": "cypress\\e2e\\TestCases\\Login.spec.js",
+      "fullFile": "cypress/e2e/TestCases/Login.spec.js",
+      "file": "cypress/e2e/TestCases/Login.spec.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "da2c3663-c6ca-435b-aa3d-9bc9002b8bf9",
+          "uuid": "57855baf-e4d7-44bc-a78b-6f6e3f69844e",
           "title": "Login Test",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "Login with valid credentials",
               "fullTitle": "Login Test Login with valid credentials",
               "timedOut": null,
-              "duration": 5889,
+              "duration": 2593,
               "state": "passed",
-              "speed": "medium",
+              "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "cy.fixture(\"credential\").then(data => {\n  const username = data.username;\n  const password = data.password;\n  console.log(password);\n  cy.visitURLSuccessfully();\n  LOGIN_PAGE_ACTION.typeUserName(username);\n  LOGIN_PAGE_ACTION.typePassword(password);\n  LOGIN_PAGE_ACTION.clickOnLoginButton();\n});",
               "err": {},
-              "uuid": "d3e6c049-e111-4565-a47d-f3c7df840bb3",
-              "parentUUID": "da2c3663-c6ca-435b-aa3d-9bc9002b8bf9",
+              "uuid": "963ea79f-c10d-4cf6-9960-8b9ed6863c93",
+              "parentUUID": "57855baf-e4d7-44bc-a78b-6f6e3f69844e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "d3e6c049-e111-4565-a47d-f3c7df840bb3"
+            "963ea79f-c10d-4cf6-9960-8b9ed6863c93"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 5889,
+          "duration": 2593,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -97,8 +97,7 @@
         "reportDir": "cypress/reports",
         "overwrite": false,
         "html": true,
-        "json": true,
-        "charts": true
+        "json": true
       },
       "version": "6.2.0"
     }
