@@ -1,40 +1,47 @@
-name: Cypress Test
+name: Run Cypress Tests and Publish Report
+
 on:
   push:
     branches:
-      - 'main'
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  cypress-test:
-    name: Run on Chrome 83
-    runs-on: ubuntu-18.04
-    container: cypress/browsers:node12.18.0-chrome83-ff77
+  test-and-publish:
+    runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+    # Step 1: Check out the code
+    - name: Check out code
+      uses: actions/checkout@v3
 
-      - name: Install cypress and verify
-        run: |
-          npm ci
-          $(npm bin)/cypress verify
+    # Step 2: Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
 
-      - name: Run Cypress tests
-        run: npm run test:chrome
-        continue-on-error: false
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: npm ci
 
-      - name: Copy test execution videos and screenshots
-        run: |
-          mkdir public
-          cp -r cypress/videos public/videos
-          cp -r cypress/screenshots public/screenshots
+    # Step 4: Run Cypress Tests
+    - name: Run Cypress Tests
+      run: npx cypress run --reporter mochawesome
 
-      - name: Merge test reports
-        run: npm run combine:report
+    # Step 5: Prepare the report
+    - name: Prepare report
+      run: |
+        mkdir -p ./public/report
+        cp -r ./cypress/reports/*.html ./public/report/
+        cp -r ./cypress/reports/*.css ./public/report/
+        cp -r ./cypress/reports/*.js ./public/report/
 
-      - name: Generate HTML report
-        run: npm run generate:report
-
-      - name: Deploy report page to GitHub Page
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.SECRET_TOKEN }}
-          publish_dir: ./public
+    # Step 6: Deploy to GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.SECRET_TOKEN }}
+        publish_dir: ./public/report
