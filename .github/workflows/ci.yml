@@ -34,8 +34,8 @@ jobs:
     # Step 5: Prepare the report
     - name: Prepare report
       run: |
-        mkdir -p ./public
-        cp -r ./cypress/reports/*.html ./public
+        mkdir -p public
+        cp -r ./cypress/reports public/
 
     # Step 6: Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
