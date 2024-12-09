@@ -34,12 +34,12 @@ jobs:
     # Step 5: Prepare the report
     - name: Prepare report
       run: |
-        mkdir -p ./public/report
-        cp -r ./cypress/reports/*.html ./public/report/
+        mkdir -p ./public
+        cp -r ./cypress/reports/*.html ./public
 
     # Step 6: Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.SECRET_TOKEN }}
-        publish_dir: ./public/report
+        publish_dir: ./public
