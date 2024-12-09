@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2024-12-09T18:58:42.658Z",
-    "end": "2024-12-09T18:58:47.468Z",
-    "duration": 4810,
+    "start": "2024-12-09T19:02:19.222Z",
+    "end": "2024-12-09T19:02:22.964Z",
+    "duration": 3742,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "d38c790b-3729-462e-846d-fd54732d0035",
+      "uuid": "1064287f-6679-4909-b15c-0de75ad93125",
       "title": "",
       "fullFile": "cypress/e2e/TestCases/Login.spec.js",
       "file": "cypress/e2e/TestCases/Login.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "57855baf-e4d7-44bc-a78b-6f6e3f69844e",
+          "uuid": "d7763e69-017a-4dd5-8e48-c46e7437a939",
           "title": "Login Test",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Login with valid credentials",
               "fullTitle": "Login Test Login with valid credentials",
               "timedOut": null,
-              "duration": 2593,
+              "duration": 2001,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.fixture(\"credential\").then(data => {\n  const username = data.username;\n  const password = data.password;\n  console.log(password);\n  cy.visitURLSuccessfully();\n  LOGIN_PAGE_ACTION.typeUserName(username);\n  LOGIN_PAGE_ACTION.typePassword(password);\n  LOGIN_PAGE_ACTION.clickOnLoginButton();\n});",
               "err": {},
-              "uuid": "963ea79f-c10d-4cf6-9960-8b9ed6863c93",
-              "parentUUID": "57855baf-e4d7-44bc-a78b-6f6e3f69844e",
+              "uuid": "d891010c-6731-4caf-8ccb-9a6ffec2b807",
+              "parentUUID": "d7763e69-017a-4dd5-8e48-c46e7437a939",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "963ea79f-c10d-4cf6-9960-8b9ed6863c93"
+            "d891010c-6731-4caf-8ccb-9a6ffec2b807"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2593,
+          "duration": 2001,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
