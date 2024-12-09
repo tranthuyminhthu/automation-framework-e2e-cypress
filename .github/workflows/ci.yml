@@ -36,8 +36,6 @@ jobs:
       run: |
         mkdir -p ./public/report
         cp -r ./cypress/reports/*.html ./public/report/
-        cp -r ./cypress/reports/*.css ./public/report/
-        cp -r ./cypress/reports/*.js ./public/report/
 
     # Step 6: Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
