@@ -7,4 +7,4 @@ describe("Add user flow", () => {
         HOME_PAGE_ACTION.clickOnAdminSelector();
 
     })
-})
+}) 
