@@ -44,31 +44,26 @@ jobs:
     # Step 6: Create index.html
     - name: Create index.html
       run: |
-        BRANCH_NAME=$(echo "${{ github.ref_name }}" | sed 's/\//-/g')
-        REPORT_PATH=public/$BRANCH_NAME
-        mkdir -p $REPORT_PATH
         echo "<!DOCTYPE html>
           <html>
               <head>
                   <title>Cypress Reports</title>
               </head>
               <body>
-                  <h1>Reports for branch: $BRANCH_NAME</h1>
-                  <ul>" > $REPORT_PATH/index.html
-        if [ -d $REPORT_PATH ]; then
-          for file in $(ls $REPORT_PATH); do
-            if [ -f $REPORT_PATH/$file ]; then
-              echo "<li><a href='$file'>$file</a></li>" >> $REPORT_PATH/index.html
-            fi
-          done
-        fi
+                  <h1>All Reports</h1>
+                  <ul>" > public/index.html
+        for branch in $(ls public); do
+          if [ -d public/$branch ]; then
+            echo "<li><a href='$branch'>Reports for $branch</a></li>" >> public/index.html
+          fi
+        done
         echo "</ul>
               </body>
-          </html>" >> $REPORT_PATH/index.html
+          </html>" >> public/index.html
 
     # Step 7: Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.SECRET_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
