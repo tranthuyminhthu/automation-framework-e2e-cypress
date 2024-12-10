@@ -46,7 +46,7 @@ jobs:
           cp -r ./public/* $REPORT_PATH/ || true # || true to ignore errors if no previous report exists
         fi
 
-        # Step 6: Create index.html
+    # Step 6: Create index.html
     - name: Create index.html
       run: |
         BRANCH_NAME=$(echo "${{ github.ref_name }}" | sed 's/\//-/g')
