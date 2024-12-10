@@ -6,5 +6,5 @@ describe("Add user flow", () => {
         cy.loginSuccessWithRoleAdmin();
         HOME_PAGE_ACTION.clickOnAdminSelector();
    
-    })
+    })   test
 }) 
