@@ -41,7 +41,32 @@ jobs:
           cp -r ./cypress/reports/* $REPORT_PATH/
         fi
 
-    # Step 6: Deploy to GitHub Pages
+    # Step 6: Create index.html for each branch
+    - name: Create branch-specific index.html
+      run: |
+        BRANCH_NAME=$(echo "${{ github.ref_name }}" | sed 's/\//-/g')
+        REPORT_PATH=public/$BRANCH_NAME
+        mkdir -p $REPORT_PATH
+        echo "<!DOCTYPE html>
+          <html>
+              <head>
+                  <title>Cypress Reports for $BRANCH_NAME</title>
+              </head>
+              <body>
+                  <h1>Reports for branch: $BRANCH_NAME</h1>
+                  <ul>" > $REPORT_PATH/index.html
+        if [ -d $REPORT_PATH ]; then
+          for file in $(ls $REPORT_PATH); do
+            if [ -f $REPORT_PATH/$file ]; then
+              echo "<li><a href='$file'>$file</a></li>" >> $REPORT_PATH/index.html
+            fi
+          done
+        fi
+        echo "</ul>
+              </body>
+          </html>" >> $REPORT_PATH/index.html
+
+    # Step 7: Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
