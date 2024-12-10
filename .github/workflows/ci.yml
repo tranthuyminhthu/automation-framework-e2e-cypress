@@ -35,10 +35,31 @@ jobs:
     - name: Prepare report
       run: |
         BRANCH_NAME=${{ github.ref_name }}
-        mkdir -p public/$BRANCH_NAME
-        cp -r ./cypress/reports/* public/$BRANCH_NAME/
+        REPORT_PATH=public/$BRANCH_NAME
+        mkdir -p $REPORT_PATH
+        cp -r ./cypress/reports/* $REPORT_PATH/
 
-    # Step 6: Deploy to GitHub Pages
+    # Step 6: Create index.html
+    - name: Create index.html
+      run: |
+        echo "<!DOCTYPE html>
+<html>
+<head>
+  <title>Cypress Reports</title>
+</head>
+<body>
+  <h1>All Reports</h1>
+  <ul>" > public/index.html
+        for branch in $(ls public); do
+          if [ -d public/$branch ]; then
+            echo "<li><a href='$branch'>Reports for $branch</a></li>" >> public/index.html
+          fi
+        done
+        echo "</ul>
+</body>
+</html>" >> public/index.html
+
+    # Step 7: Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
