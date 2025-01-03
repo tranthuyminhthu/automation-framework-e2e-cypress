@@ -1,51 +1,54 @@
-import { HomePageElement } from "../../PageObjects/PageElements/HomePageElement";
+import { HomePageElement } from "../../PageElements/orange-hrm-home-element/HomePageElement";
+const HOME_PAGE_ELEMENT = new HomePageElement();
 export class HomePageAction {
   getAdminSelector() {
-    return cy.get(HomePageElement.MAIN_MENU_SELECTOR).contains(HomePageElement.ADMIN);
+    return cy
+      .get(HOME_PAGE_ELEMENT.MAIN_MENU_SELECTOR)
+      .contains(HOME_PAGE_ELEMENT.ADMIN);
   }
 
   getPIMSelector() {
-    return cy.get(HomePageElement.PIM_SELECTOR);
+    return cy.get(HOME_PAGE_ELEMENT.PIM_SELECTOR);
   }
 
   getLeaveSelector() {
-    return cy.get(HomePageElement.LEAVE_SELECTOR);
+    return cy.get(HOME_PAGE_ELEMENT.LEAVE_SELECTOR);
   }
 
   getTimeSelector() {
-    return cy.get(HomePageElement.TIME_SELECTOR);
+    return cy.get(HOME_PAGE_ELEMENT.TIME_SELECTOR);
   }
 
   getRecruitmentSelector() {
-    return cy.get(HomePageElement.RECRUITMENT_SELECTOR);
+    return cy.get(HOME_PAGE_ELEMENT.RECRUITMENT_SELECTOR);
   }
 
   getMyInfoSelector() {
-    return cy.get(HomePageElement.MY_INFO_SELECTOR);
+    return cy.get(HOME_PAGE_ELEMENT.MY_INFO_SELECTOR);
   }
 
   getPerformanceSelector() {
-    return cy.get(HomePageElement.PERFORMANCE_SELECTOR);
+    return cy.get(HOME_PAGE_ELEMENT.PERFORMANCE_SELECTOR);
   }
 
   getDashboardSelector() {
-    return cy.get(HomePageElement.DASHBOARD_SELECTOR);
+    return cy.get(HOME_PAGE_ELEMENT.DASHBOARD_SELECTOR);
   }
 
   getDirectorySelector() {
-    return cy.get(HomePageElement.DIRECTORY_SELECTOR);
+    return cy.get(HOME_PAGE_ELEMENT.DIRECTORY_SELECTOR);
   }
 
   getMaintenanceSelector() {
-    return cy.get(HomePageElement.MAINTENANCE_SELECTOR);
+    return cy.get(HOME_PAGE_ELEMENT.MAINTENANCE_SELECTOR);
   }
 
   getClamSelector() {
-    return cy.get(HomePageElement.CLAIM_SELECTOR);
+    return cy.get(HOME_PAGE_ELEMENT.CLAIM_SELECTOR);
   }
 
   getBuzzSelector() {
-    return cy.get(HomePageElement.BUZZ_SELECTOR);
+    return cy.get(HOME_PAGE_ELEMENT.BUZZ_SELECTOR);
   }
 
   clickOnAdminSelector() {

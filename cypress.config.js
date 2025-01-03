@@ -7,7 +7,8 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
     },
-    specPattern: "cypress/e2e/*/*spec.js", // Cấu hình pattern
+    specPattern: "cypress/test-cases/**/*.spec.js", // Chọn tất cả các file .spec.js trong thư mục test-cases và các thư mục con
+
   },
   reporter: 'mochawesome',
   reporterOptions: {

@@ -1,11 +1,22 @@
-// visit URL
-import * as Contants from '../constant';
-Cypress.Commands.add('visitURLSuccessfully', (url) => {
-    cy.visit(Contants.URL);
+import * as Contants from "../constant";
+import { HomePageAction } from "../pages/PageActions/orange-hrm-home-action/HomePageAction";
+
+const HOME_PAGE_ACTION = new HomePageAction();
+
+// Đăng ký lệnh "visitURLSuccessfully" để mở URL
+Cypress.Commands.add("visitURLSuccessfully", () => {
+  cy.visit(Contants.URL);  // Dùng Contants.URL thay vì tham số url
 });
 
-Cypress.Commands.add('loginSuccessWithRoleAdmin', (url) => {
-    cy.visit(Contants.URL);
-    cy.get('input[name="username"]').type('Admin');
-    cy.get('input[name="password"]').type('admin12');
-})
+// Đăng ký lệnh "loginSuccessWithRoleAdmin" để đăng nhập với vai trò Admin
+Cypress.Commands.add("loginSuccessWithRoleAdmin", () => {
+  cy.visit(Contants.URL);  // Mở URL từ Contants.URL
+  cy.get('input[name="username"]').type("Admin");  // Nhập tên người dùng
+  cy.get('input[name="password"]').type("admin123");  // Nhập mật khẩu
+  cy.get('button[type="submit"]').click();  // Thực hiện đăng nhập (giả sử có nút submit)
+});
+
+// Đăng ký lệnh "navigateToAdminPage" để điều hướng đến trang quản trị
+Cypress.Commands.add("navigateToAdminPage", () => {
+  HOME_PAGE_ACTION.clickOnAdminSelector();  // Giả sử HomePageAction có phương thức clickOnAdminSelector()
+});
