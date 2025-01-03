@@ -1,4 +1,4 @@
-import { HomePageElement } from "../PageElements/HomePageElement";
+import { HomePageElement } from "../../PageObjects/PageElements/HomePageElement";
 export class HomePageAction {
   getAdminSelector() {
     return cy.get(HomePageElement.MAIN_MENU_SELECTOR).contains(HomePageElement.ADMIN);

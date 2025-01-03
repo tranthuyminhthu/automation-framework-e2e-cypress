@@ -1,4 +1,4 @@
-import { LoginPageAction } from "../../PageObjects/PageActions/LoginPageAction";
+import { LoginPageAction } from "../../../pages/PageActions/LoginPageAction";
 
 const LOGIN_PAGE_ACTION = new LoginPageAction();
 describe("Login Test", () => {

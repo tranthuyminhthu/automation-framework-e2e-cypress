@@ -1,5 +1,5 @@
-import { HomePageAction } from "../../PageObjects/PageActions/HomePageAction";
-import { LoginPageAction } from "../../PageObjects/PageActions/LoginPageAction";
+import { HomePageAction } from "../../pages/PageActions/HomePageAction";
+import { LoginPageAction } from "../../pages/PageActions/LoginPageAction";
 
 const HOME_PAGE_ACTION = new HomePageAction();
 const LOGIN_PAGE_ACTION = new LoginPageAction();

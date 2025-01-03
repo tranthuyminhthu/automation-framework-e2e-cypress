@@ -1,5 +1,5 @@
 // PageActions/LoginPageAction.js
-import { LoginPageElement } from "../PageElements/LoginPageElement";
+import { LoginPageElement } from "../../PageObjects/PageElements/LoginPageElement";
 
 export class LoginPageAction {
   getUserName() {
