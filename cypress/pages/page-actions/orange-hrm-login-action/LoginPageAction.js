@@ -1,5 +1,7 @@
 // PageActions/LoginPageAction.js
-import { LoginPageElement } from "../../PageElements/orange-hrm-login-element/LoginPageElement";
+import { LoginPageElement } from "../../page-elements/orange-hrm-login-element/LoginPageElement";
+
+const LOGIN_PAGE_ELEMENT = new LoginPageElement();
 
 export class LoginPageAction {
   getUserName() {

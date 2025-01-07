@@ -1,4 +1,4 @@
-import { HomePageElement } from "../../PageElements/orange-hrm-home-element/HomePageElement";
+import { HomePageElement } from "../../page-elements/orange-hrm-home-element/HomePageElement";
 const HOME_PAGE_ELEMENT = new HomePageElement();
 export class HomePageAction {
   getAdminSelector() {

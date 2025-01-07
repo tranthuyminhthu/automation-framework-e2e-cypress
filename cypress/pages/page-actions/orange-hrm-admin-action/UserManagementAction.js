@@ -1,4 +1,4 @@
-import { UserManagementElement } from "../../PageElements/orange-hrm-admin-element/UserManagementElement";
+import { UserManagementElement } from "../../page-elements/orange-hrm-admin-element/UserManagementElement";
 const USER_MANAGEMENT_ELEMENT = new UserManagementElement();
 export class UserManagementAction {
   getUserNameInput() {

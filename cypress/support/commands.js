@@ -1,5 +1,5 @@
 import * as Contants from "../constant";
-import { HomePageAction } from "../pages/PageActions/orange-hrm-home-action/HomePageAction";
+import { HomePageAction } from "../pages/page-actions/orange-hrm-home-action/HomePageAction";
 
 const HOME_PAGE_ACTION = new HomePageAction();
 
@@ -18,5 +18,7 @@ Cypress.Commands.add("loginSuccessWithRoleAdmin", () => {
 
 // Đăng ký lệnh "navigateToAdminPage" để điều hướng đến trang quản trị
 Cypress.Commands.add("navigateToAdminPage", () => {
-  HOME_PAGE_ACTION.clickOnAdminSelector();  // Giả sử HomePageAction có phương thức clickOnAdminSelector()
+  cy.get('selector-to-check').should('be.visible').then(() => {
+    HOME_PAGE_ACTION.clickOnAdminSelector();  
+  });  // Giả sử HomePageAction có phương thức clickOnAdminSelector()
 });
