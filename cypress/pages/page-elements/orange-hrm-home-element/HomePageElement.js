@@ -1,5 +1,5 @@
 export class HomePageElement {
-  MAIN_MENU_SELECTOR = 'span.oxd-main-menu-item--name';
+  SELECTION_SELECTOR = 'span.oxd-main-menu-item--name';
   SEARCH_SELECTOR = 'input[placeholder="Search"]';
   ADMIN = 'Admin';
   PIM_SELECTOR = 'a[href="/pim"]';
@@ -13,4 +13,5 @@ export class HomePageElement {
   MAINTENANCE_SELECTOR = 'a[href="/maintenance"]';
   CLAIM_SELECTOR = 'a[href="/claim"]';
   BUZZ_SELECTOR = 'a[href="/buzz"]';
+  MAIN_MENU = '.oxd-main-menu'
 }

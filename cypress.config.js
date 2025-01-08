@@ -3,9 +3,12 @@ const cucumber = require("cypress-cucumber-preprocessor").default;
 
 module.exports = defineConfig({
   e2e: {
-    specPattern: "cypress/cucumber/feature/**/*.feature", // Điều chỉnh theo đúng đường dẫn
+    // Chỉ định đường dẫn tệp .feature
+    specPattern: "cypress/test-cases/cucumber/feature/**/*.feature",
     setupNodeEvents(on, config) {
+      // Kết nối plugin cucumber với file preprocessor
       on("file:preprocessor", cucumber());
+      return config;
     },
   },
 });

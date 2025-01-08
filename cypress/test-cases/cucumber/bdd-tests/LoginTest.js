@@ -1,14 +1,18 @@
 import {Given, When, Then} from 'cypress-cucumber-preprocessor/steps';
+import { HomePageAction } from '../../../pages/page-actions/orange-hrm-home-action/HomePageAction';
 
-Given("precondition", ()=> {
-    cy.visit("http://demo.guru99.com/test/newtours/");
+const HOME_PAGE_ACTION = new HomePageAction();
+
+Given("I am on the login page", ()=> {
+    cy.visitURLSuccessfully();
 
 })
 
-When("action", ()=> {
-    cy.title().should('eq', 'Welcome: Mercury Tours');
+When("I login with username {string} and password {string}", ()=> {
+    cy.loginSuccessWithRoleAdmin();
 })
 
-Then("testable outcome", ()=> {
-    cy.title().should('eq', 'Welcome: Mercury Tours');
+Then("System will show Dashboard page", ()=> {
+    HOME_PAGE_ACTION.getMainMenu().find('span').contains('Dashboard').should('be.visible');
+    
 })

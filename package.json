@@ -16,7 +16,6 @@
     "mochawesome-report-generator": "^6.2.0"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": false,
-    "step_definitions": "cypress/cucumber/cucumber-tests"
+  "step_definitions": "cypress/test-cases/cucumber/bdd-tests"
   }
 }

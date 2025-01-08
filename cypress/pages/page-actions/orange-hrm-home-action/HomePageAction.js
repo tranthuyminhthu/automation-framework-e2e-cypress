@@ -3,7 +3,7 @@ const HOME_PAGE_ELEMENT = new HomePageElement();
 export class HomePageAction {
   getAdminSelector() {
     return cy
-      .get(HOME_PAGE_ELEMENT.MAIN_MENU_SELECTOR)
+      .get(HOME_PAGE_ELEMENT.SELECTION_SELECTOR)
       .contains(HOME_PAGE_ELEMENT.ADMIN);
   }
 
@@ -49,6 +49,10 @@ export class HomePageAction {
 
   getBuzzSelector() {
     return cy.get(HOME_PAGE_ELEMENT.BUZZ_SELECTOR);
+  }
+
+  getMainMenu(){
+    return cy.get(HOME_PAGE_ELEMENT.MAIN_MENU)
   }
 
   clickOnAdminSelector() {
